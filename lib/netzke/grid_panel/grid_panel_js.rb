@@ -28,11 +28,7 @@ module Netzke
         
           # Optional "edit in form"-related events
           edit_in_form_events = <<-END_OF_JAVASCRIPT 
-          
-          function epm_check(value, metaData, record, rowIndex, colIndex,store) {
-          		alert('test');
-          	}
-          
+        
           if config[:edit_in_form_available]
             if (this.enableEditInForm) {
               this.getSelectionModel().on('selectionchange', function(selModel){
