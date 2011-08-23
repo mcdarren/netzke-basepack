@@ -36,6 +36,7 @@ module Netzke
           if config[:edit_in_form_available]
             if (this.enableEditInForm) {
               this.getSelectionModel().on('selectionchange', function(selModel){
+                console.log('ello');
                 var disabled;
                 if (!selModel.hasSelection()) {
                   disabled = true;
