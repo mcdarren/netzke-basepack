@@ -22,6 +22,7 @@ module Netzke
         def js_base_class 
           'Netzke.pre.GridPanel' # see grid_panel_pre.js
         end
+        
 
         # Ext.Component#initComponent, built up from pices (dependent on class-level configuration)
         def js_init_component
@@ -43,6 +44,17 @@ module Netzke
               }, this);
             }
           END_OF_JAVASCRIPT
+          
+          require_renderer = <<-END_OF_JAVASCRIPT
+          function required(val) {
+              if (val) {
+                  return '<span style="color:green;">' + val + '%</span>';
+              } else {
+                  return '<span style="color:red;">' + val + '%</span>';
+              }
+              return val;
+          }
+          END_OF_JAVASCRIPT
         
           # Result
           <<-END_OF_JAVASCRIPT
@@ -50,6 +62,7 @@ module Netzke
               // Original initComponent
               #{js_full_class_name}.superclass.initComponent.call(this);
               #{edit_in_form_events}
+              #{require_renderer}
             }
           
           END_OF_JAVASCRIPT
