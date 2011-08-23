@@ -41,6 +41,9 @@ module Netzke
                 };
                 this.actions.editInForm.setDisabled(disabled);
               }, this);
+              function epm_check(value, metaData, record, rowIndex, colIndex,store) {
+              		alert('test');
+              	}
             }
           END_OF_JAVASCRIPT
         
