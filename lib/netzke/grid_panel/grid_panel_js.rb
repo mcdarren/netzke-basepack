@@ -27,12 +27,9 @@ module Netzke
         def js_init_component
         
           # Optional "edit in form"-related events
-          edit_in_form_events = <<-END_OF_JAVASCRIPT 
-        
-          if config[:edit_in_form_available]
+          edit_in_form_events = <<-END_OF_JAVASCRIPT if config[:edit_in_form_available]
             if (this.enableEditInForm) {
               this.getSelectionModel().on('selectionchange', function(selModel){
-                console.log('ello');
                 var disabled;
                 if (!selModel.hasSelection()) {
                   disabled = true;
@@ -45,8 +42,6 @@ module Netzke
                 this.actions.editInForm.setDisabled(disabled);
               }, this);
             }
-        
-            
           END_OF_JAVASCRIPT
         
           # Result
