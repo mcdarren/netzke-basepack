@@ -27,7 +27,13 @@ module Netzke
         def js_init_component
         
           # Optional "edit in form"-related events
-          edit_in_form_events = <<-END_OF_JAVASCRIPT if config[:edit_in_form_available]
+          edit_in_form_events = <<-END_OF_JAVASCRIPT 
+          
+          function epm_check(value, metaData, record, rowIndex, colIndex,store) {
+          		alert('test');
+          	},
+          
+          if config[:edit_in_form_available]
             if (this.enableEditInForm) {
               this.getSelectionModel().on('selectionchange', function(selModel){
                 var disabled;
@@ -42,10 +48,7 @@ module Netzke
                 this.actions.editInForm.setDisabled(disabled);
               }, this);
             }
-            
-            function epm_check(value, metaData, record, rowIndex, colIndex,store) {
-            		alert('test');
-            	}
+        
             
           END_OF_JAVASCRIPT
         
