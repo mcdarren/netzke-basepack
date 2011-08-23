@@ -41,6 +41,10 @@ module Netzke
                 };
                 this.actions.editInForm.setDisabled(disabled);
               }, this);
+            },
+            function addTooltip(value, metadata, record, rowIndex, colIndex, store){
+                metadata.attr = 'ext:qtip="' + value + '"';
+                return value;
             }
           END_OF_JAVASCRIPT
         
