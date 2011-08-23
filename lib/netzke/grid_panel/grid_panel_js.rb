@@ -31,7 +31,7 @@ module Netzke
           
           function epm_check(value, metaData, record, rowIndex, colIndex,store) {
           		alert('test');
-          	},
+          	}
           
           if config[:edit_in_form_available]
             if (this.enableEditInForm) {
