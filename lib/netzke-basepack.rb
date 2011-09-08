@@ -8,17 +8,17 @@ require 'netzke/active_record'
 
 # Make widget classes auto-loadable with help of ActiveSupport
 path = File.dirname(__FILE__)
-ActiveSupport::Dependencies.load_paths << path
+ActiveSupport::Dependencies.autoload_paths << path
 
 # Make this plugin auto-reloadable for easier development
-ActiveSupport::Dependencies.load_once_paths.delete(path)
+ActiveSupport::Dependencies.autoload_once_paths.delete(path)
 
 # Make gem's models auto-loadable
 %w{ models }.each do |dir|
   path = File.join(File.dirname(__FILE__), 'app', dir)
   $LOAD_PATH << path
-  ActiveSupport::Dependencies.load_paths << path
-  ActiveSupport::Dependencies.load_once_paths.delete(path)
+  ActiveSupport::Dependencies.autoload_paths << path
+  ActiveSupport::Dependencies.autoload_once_paths.delete(path)
 end
 
 # Include javascript & styles required by all basepack widgets. 
